@@ -15,15 +15,19 @@ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.10-ma
 Til kørsel af provider / consumer er det nemmest med to terminaler
 
 ### Terminal 2
+Gå til directory, installer composer pakker og kør consume.php
 ```
 cd Consumer
+composer install
 php consume.php
 ```
 Nu er vores consumer klar til at tage imod beskeder fra broker.
 
 ### Terminal 3
+Gå til directory, installer composer pakker og kør provide.php
 ```
 cd Provider
+composer install
 php provide.php
 ```
 Nu sendes beskeder fra provider og skulle gerne modtages af consumer
