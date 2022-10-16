@@ -10,7 +10,9 @@ $channel->queue_declare('hello', false, false, false, false);
 echo " [*] Waiting for messages. To exit press CTRL+C\n";
 
 $callback = function ($msg) {
-    echo ' [x] Received ', $msg->body, "\n";
+    if($msg->body >= 90) {
+        echo ' [x] Received ', $msg->body, "\n";
+    }
   };
   
   $channel->basic_consume('hello', '', false, true, false, false, $callback);
