@@ -1,7 +1,7 @@
 version: '3'
 services:
   couchserver:
-    image: couchdb
+    image: couchdb:latest
     restart: always
     container_name: 'couchdb'
     ports:
@@ -13,7 +13,7 @@ services:
       - dbdata:/opt/couchdb/data
 
   rabbitmq:
-    image: rabbitmq:3.9-management
+    image: rabbitmq:latest
     container_name: 'rabbitmq'
     hostname: rabbitmq
     ports:
