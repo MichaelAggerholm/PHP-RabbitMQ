@@ -1,0 +1,35 @@
+version: '3'
+services:
+  couchserver:
+    image: couchdb
+    restart: always
+    container_name: 'couchdb'
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=YOURPASSWORD
+    volumes:
+      - dbdata:/opt/couchdb/data
+
+  rabbitmq:
+    image: rabbitmq:3.9-management
+    container_name: 'rabbitmq'
+    hostname: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq/
+      - rabbitmq_log:/var/log/rabbitmq/
+    networks:
+      - rabbitmq_net
+
+volumes:
+    dbdata:
+    rabbitmq_data:
+    rabbitmq_log:
+
+networks:
+  rabbitmq_net:
+    driver: bridge

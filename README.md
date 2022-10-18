@@ -6,10 +6,24 @@ git clone https://github.com/MichaelAggerholm/PHP_RabbitMQ.git
 ```
 
 ### Terminal 1
-#### Åben terminal og start rabbitMQ fra det officielle docker image:
+#### Åben terminal og start docker miljø op:
 ```
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.10-management
+cd PHP_RabbitMQ
+sudo docker-compose up -d
 ```
+Dette starter to docker containers op fra deres officielle docker images:
+##### couchdb
+port: 5984
+url: localhost:5984/_utils
+username: admin
+password: YOURPASSWORD
+
+##### rabbitmq
+port: 5672
+###### commands:
+docker exec -it rabbitmq bash
+rabbitmqctl list_queues
+_En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
 
 ## Åben hver provider i hver sin terminal:
 Til kørsel af provider / consumer er det nemmest med én terminal for consumer og én terminal per provider
@@ -56,17 +70,6 @@ php provide.php
 
 Nu sendes beskeder fra providers og modtages af consumer.
 
-## Message queue
-
-### Terminal 7
-
-#### For at se nuværende message queue, kan vi fra vores rocker container bruge rabbitmqctl:
-```
-docker exec -it rabbitmq bash
-rabbitmqctl list_queues
-```
-_En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
-
 ## Hjælpe commands ved test kørsler
 
 #### Stop og fjern containers + images
@@ -80,4 +83,9 @@ docker rmi $(docker images -q)
 ```
 sudo netstat -lpn |grep :5672
 sudo kill -9 5672
+```
+
+#### Giv ejerskab af mappen:
+```
+sudo chown -R $USER:$USER PHP_RabbitMQ/
 ```
