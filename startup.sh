@@ -20,8 +20,8 @@ composer install --working-dir=consumer
 echo $'Finished composer install for consumer\n'
 sleep 2
 
-echo 'Starting providers'
 # Execute all providers, and log output to logfile.
+echo 'Starting providers'
 for FILE in providers/provider_*/provide.php; do
   LOGFILE="output.log"
   echo "New providers run" > $LOGFILE
@@ -30,7 +30,7 @@ done
 echo $'Providers started\n'
 sleep 2
 
+# Start consume.php in attach mode.
 echo "Starting consumer"
 sleep 2
-# Start consume.php in attach mode.
 php consumer/consume.php
