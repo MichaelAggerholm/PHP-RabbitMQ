@@ -39,14 +39,14 @@ _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se q
 
 ## Hjælpe commands ved test kørsler
 
-#### Stop og fjern containers + images
+#### Stop og fjern containers + images:
 ```
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
 ```
 
-#### Stop og fjern rabbitmq/couchdb containers
+#### Stop og fjern rabbitmq/couchdb containers:
 ```
 docker stop rabbitmq couchdb
 docker rm rabbitmq couchdb
@@ -63,7 +63,12 @@ sudo kill -9 5672
 sudo chown -R $USER:$USER PHP_RabbitMQ/
 ```
 
-#### Dræb alle php processer startet af script
+#### Dræb alle php processer startet af script:
 ```
 sudo killall php
+```
+
+#### Hvis der meldes fejl om "host already in use by docker containers" selvom ingen containere eksistere:
+```
+sudo systemctl restart docker.socket docker.service;
 ```
