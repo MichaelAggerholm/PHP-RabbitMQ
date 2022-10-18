@@ -8,8 +8,6 @@ $consumer_channel = $connection->channel();
 
 $consumer_channel->queue_declare('first_wave', false, false, false, false);
 
-echo " [*] Waiting for messages. To exit press CTRL+C\n";
-
 $callback = function ($msg) {
     if($msg->body >= 90) {
         echo ' [x] Consumed ', $msg->body, "\n";

@@ -1,17 +1,29 @@
 # Grundlæggende setup for brug af RabbitMQ med PHP.
 
-#### Klon projektet ned:
+## Projekt kørsel
+
+### Klon projektet ned:
 ```
 git clone https://github.com/MichaelAggerholm/PHP_RabbitMQ.git
 ```
 
-### Terminal 1
-#### Åben terminal og start docker miljø op:
+### Start projektet op:
 ```
 cd PHP_RabbitMQ
-sudo docker-compose up -d
+./startup.sh
 ```
-Dette starter to docker containers op fra deres officielle docker images:
+
+## Projekt forklaring
+
+### Startup script
+Startup script kører følgene steps igennem:
+1. docker-composer up -d ( _Starter rabbitmq og couchdb fra officielle images_) 
+2. composer install ( _Går ind og laver en composer install i alle consumer / provider directories_ )
+3. Start alle provider php scripts og pipe alt output til output.log fil
+4. Start consumer php script i attached mode
+
+Nu sendes beskeder fra providers og modtages af consumer.
+
 #### couchdb
 port: 5984<br />
 url: localhost:5984/_utils<br />
@@ -25,51 +37,6 @@ docker exec -it rabbitmq bash<br />
 rabbitmqctl list_queues<br />
 _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
 
-## Åben hver provider i hver sin terminal:
-Til kørsel af provider / consumer er det nemmest med én terminal for consumer og én terminal per provider
-
-### Terminal 2
-#### Gå til consumer directory, installer composer pakker og kør consume.php:
-```
-cd consumer
-composer install
-php consume.php
-```
-Nu er vores consumer klar til at tage imod beskeder fra RabbitMQ queue.
-
-### Terminal 3
-#### Gå til providers/provider_one directory, installer composer pakker og kør provide.php:
-```
-cd providers/provider_one
-composer install
-php provide.php
-```
-
-### Terminal 4
-#### Gå til providers/provider_two directory, installer composer pakker og kør provide.php:
-```
-cd providers/provider_two
-composer install
-php provide.php
-```
-
-### Terminal 5
-#### Gå til providers/provider_three directory, installer composer pakker og kør provide.php:
-```
-cd providers/provider_three
-composer install
-php provide.php
-```
-### Terminal 6
-#### Gå til providers/provider_four directory, installer composer pakker og kør provide.php:
-```
-cd providers/provider_four
-composer install
-php provide.php
-```
-
-Nu sendes beskeder fra providers og modtages af consumer.
-
 ## Hjælpe commands ved test kørsler
 
 #### Stop og fjern containers + images
@@ -77,6 +44,12 @@ Nu sendes beskeder fra providers og modtages af consumer.
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
+```
+
+#### Stop og fjern rabbitmq/couchdb containers
+```
+docker stop rabbitmq couchdb
+docker rm rabbitmq couchdb
 ```
 
 #### Kill hvad end der bruger min nuværende port:
