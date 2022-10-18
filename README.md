@@ -22,7 +22,10 @@ Startup script kører følgene steps igennem:
 3. Start alle provider php scripts og pipe alt output til output.log fil
 4. Start consumer php script i attached mode
 
-Nu sendes beskeder fra providers og modtages af consumer.
+Nu sendes beskeder fra providers og modtages af consumer, heri bliver dataen håndteret, og gemt i CouchDB.<br />
+Måden dataen håndteres er ved kun at beholde værdier af relevans, i dette tilfælde har jeg valgt alle værdier over 89.<br />
+
+### Docker Containers
 
 #### couchdb
 port: 5984<br />
