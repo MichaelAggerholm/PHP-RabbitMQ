@@ -12,15 +12,15 @@ cd PHP_RabbitMQ
 sudo docker-compose up -d
 ```
 Dette starter to docker containers op fra deres officielle docker images:
-##### couchdb
+#### couchdb
 port: 5984
 url: localhost:5984/_utils
 username: admin
 password: YOURPASSWORD
 
-##### rabbitmq
+#### rabbitmq
 port: 5672
-###### commands:
+##### commands:
 docker exec -it rabbitmq bash
 rabbitmqctl list_queues
 _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
