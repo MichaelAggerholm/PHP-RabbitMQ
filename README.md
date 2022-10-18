@@ -67,8 +67,3 @@ sudo chown -R $USER:$USER PHP_RabbitMQ/
 ```
 sudo killall php
 ```
-
-#### Hvis der meldes fejl om "host already in use by docker containers" selvom ingen containere eksistere:
-```
-sudo systemctl restart docker.socket docker.service;
-```
