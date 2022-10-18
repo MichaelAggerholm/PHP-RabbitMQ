@@ -13,16 +13,16 @@ sudo docker-compose up -d
 ```
 Dette starter to docker containers op fra deres officielle docker images:
 #### couchdb
-port: 5984
-url: localhost:5984/_utils
-username: admin
+port: 5984<br />
+url: localhost:5984/_utils<br />
+username: admin<br />
 password: YOURPASSWORD
 
 #### rabbitmq
 port: 5672
 ##### commands:
-docker exec -it rabbitmq bash
-rabbitmqctl list_queues
+docker exec -it rabbitmq bash<br />
+rabbitmqctl list_queues<br />
 _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
 
 ## Åben hver provider i hver sin terminal:
