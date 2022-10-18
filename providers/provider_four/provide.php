@@ -14,7 +14,7 @@ while($send){
     $provider_channel->basic_publish($msg, '', 'first_wave');
     
     sleep(1);
-    echo " [x] Sent $msg->body\n";
+    echo " [x] provider_four Sent $msg->body\n";
 }
 
 $provider_channel->close();
