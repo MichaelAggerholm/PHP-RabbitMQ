@@ -11,6 +11,7 @@ git clone https://github.com/MichaelAggerholm/PHP_RabbitMQ.git
 cd PHP_RabbitMQ
 sudo docker-compose up -d
 ```
+_For at dræbe alle php processer som kører i baggrunden bruges command: 'killall php'_<br />
 Dette starter to docker containers op fra deres officielle docker images:
 #### couchdb
 port: 5984<br />
