@@ -67,3 +67,8 @@ sudo chown -R $USER:$USER PHP_RabbitMQ/
 ```
 sudo killall php
 ```
+
+#### Hvis der er problemer med "Rabbitmq already running" på trods af ingen containers kørende:
+```
+sudo systemctl stop rabbitmq-server.service
+```
