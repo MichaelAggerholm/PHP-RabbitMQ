@@ -1,4 +1,4 @@
-# Grundlæggende setup for brug af RabbitMQ med PHP.
+# Datahåndtering med PHP, RabbitMQ og CouchDB.
 
 ## Projekt kørsel
 
