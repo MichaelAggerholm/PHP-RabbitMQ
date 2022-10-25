@@ -50,7 +50,7 @@ _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se q
 Billede fra successfuld opstart i terminal:
 ![](assets/screen1.png)
 
-samt gemte records i couchdb:
+Samt gemte records i couchdb:
 ![](assets/screen2.png)
 
 ## Hjælpe commands ved test kørsler
