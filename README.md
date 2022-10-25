@@ -47,10 +47,10 @@ rabbitmqctl list_queues<br />
 _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
 
 ### Successfuld kørsel
-Billede fra successfuld opstart i terminal:
+Billede fra successfuld opstart i terminal:<br />
 ![](assets/screen1.png)
 
-Samt gemte records i couchdb:
+Samt gemte records i couchdb:<br />
 ![](assets/screen2.png)
 
 ## Hjælpe commands ved test kørsler
