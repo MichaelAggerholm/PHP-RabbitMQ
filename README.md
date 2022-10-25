@@ -2,6 +2,12 @@
 
 ## Projekt kørsel
 
+### Inden kørsel
+Inden kørsel er der nogle få requirements til environment:
+1. PHP
+2. Composer
+3. docker / docker-compose
+
 ### Klon projektet ned:
 ```
 git clone https://github.com/MichaelAggerholm/PHP_RabbitMQ.git
@@ -39,6 +45,13 @@ port: 5672
 docker exec -it rabbitmq bash<br />
 rabbitmqctl list_queues<br />
 _En nem måde at se queuen på, er at stoppe consumeren, starte provideren, se queue og først derefter lade consumeren hente beskeder igen._
+
+### Successfuld kørsel
+Billede fra successfuld opstart i terminal:
+![](assets/screen1.png)
+
+samt gemte records i couchdb:
+![](assets/screen2.png)
 
 ## Hjælpe commands ved test kørsler
 

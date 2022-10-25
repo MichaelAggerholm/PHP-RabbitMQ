@@ -32,7 +32,7 @@ $callback = function ($msg) use ($couchDB) {
         } catch (Exception $e) {
             echo "ERROR: " . $e->getMessage() . " (" . $e->getCode() . ")<br>";
         }
-        echo "Consumed [".$msg->body."] and saved to couch with id [".$response->id."]<br>\n";
+        echo "Consumed [".$msg->body."] and saved to couch with id [".$response->id."]\n";
     }
 };
 
